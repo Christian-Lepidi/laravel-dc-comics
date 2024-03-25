@@ -13,7 +13,7 @@
             <th>Titolo</th>
             <th>Descrizione</th>
             <th>Prezzo</th>
-            <th>>Serie</th>
+            <th>Serie</th>
             <th>Data d'uscita</th>
             <th>Tipologia</th>
             <th></th>
@@ -29,7 +29,7 @@
             <td>{{$comic->series}}</td>
             <td>{{$comic->sale_date}}</td>
             <td>{{$comic->type}}</td>
-            <td></td>
+            <td><a href="{{route('comics.show', $comic)}}">Dettagli</a></td>
           </tr>  
           @empty
           <tr>
