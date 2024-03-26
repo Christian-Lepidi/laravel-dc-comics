@@ -32,31 +32,31 @@
             <td>
               <a href="{{route('comics.show', $comic)}}">Dettagli</a>
               <a href="{{route('comics.edit', $comic)}}">Modifica</a>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete-comic-{{$comic->id}}-modal">
-                Launch demo modal
+              <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#delete-comic-{{$comic->id}}-modal">
+                Elimina
               </button>
-              <div class="modal fade" id="#delete-comic-{{$comic->id}}-modal" tabindex="-1" aria-labelledby="#delete-comic-{{$comic->id}}-modal" aria-hidden="true">
+              <div class="modal fade" id="delete-comic-{{$comic->id}}-modal" tabindex="-1" aria-labelledby="delete-comic-{{$comic->id}}-modal" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina{{$comic->title}}</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina {{$comic->title}}</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      ...
+                      Operazione irreversibile. Sicuro di voler proseguire?
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
+                      <form action="{{route('comics.destroy', $comic)}}" method="POST">
+                        @csrf
+                        @method('DELETE') 
+                        <button class="btn btn-danger">Conferma Eliminazione</button>
+                       </form>
                     </div>
                   </div>
                 </div>
               </div>
-              <form action="{{route('comics.destroy', $comic)}}" method="POST">
-               @csrf
-               @method('DELETE') 
-               <button class="btn btn-danger">Elimina</button>
-              </form>
+              
             </td>
           </tr>  
           @empty
