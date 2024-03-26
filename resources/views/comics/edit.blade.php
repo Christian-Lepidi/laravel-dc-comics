@@ -40,7 +40,7 @@
            <textarea type="text" name="description" id="description" class="form-control" rows="5" required>{{$comic->description}}</textarea>
         </div>
         <div class="col-3">   
-         <button class="btn btn-success">Salva</button>
+         <button class="btn btn-success">Salva Modifiche</button>
         </div>
       </form>
     </div>
